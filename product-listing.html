@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ShopKart — Laptops</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    bg: "#F8FAFC",
+                    heading: "#111827",
+                    body: "#6B7280",
+                    primary: "#2563EB",
+                    primaryHover: "#1D4ED8",
+                    sale: "#DC2626",
+                    line: "#E5E7EB",
+                    rating: "#F59E0B",
+                },
+                fontFamily: {
+                    sans: ["Inter", "ui-sans-serif", "system-ui", "sans-serif"],
+                },
+            },
+        },
+    };
+</script>
+</head>
+
+<body class="bg-bg font-sans text-body">
+
+<!-- ===== TOP NAV ===== -->
+<header class="bg-white border-b border-line">
+    <div class="max-w-[1280px] mx-auto px-6 h-16 flex items-center gap-4">
+        <!-- mobile menu -->
+        <button class="lg:hidden text-heading" aria-label="Menu">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="7" x2="20" y2="7"/><line x1="4" y1="12" x2="20" y2="12"/><line x1="4" y1="17" x2="20" y2="17"/></svg>
+        </button>
+
+        <!-- logo -->
+        <div class="flex items-center gap-2 shrink-0">
+            <span class="grid place-items-center w-8 h-8 rounded-lg bg-primary text-white font-bold">S</span>
+            <span class="text-heading font-bold text-lg">ShopKart</span>
+        </div>
+
+        <!-- search (hidden on mobile) -->
+        <div class="hidden sm:flex flex-1 max-w-xl items-center gap-2 bg-bg border border-line rounded-lg px-3 py-2">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="text-body"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.5" y2="16.5"/></svg>
+            <input type="text" placeholder="Search for products..." class="bg-transparent outline-none text-[14px] w-full">
+        </div>
+
+        <!-- icons -->
+        <div class="flex items-center gap-4 ml-auto text-heading">
+            <button aria-label="Cart"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="19" cy="21" r="1"/><path d="M3 4h2l2.4 12.4a2 2 0 0 0 2 1.6h7.7a2 2 0 0 0 2-1.6L22 8H6"/></svg></button>
+            <button aria-label="Account"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg></button>
+        </div>
+    </div>
+</header>
+
+<div class="max-w-[1280px] mx-auto px-6 py-6">
+
+    <!-- breadcrumb -->
+    <nav class="text-[13px] mb-5">
+        <a href="#" class="hover:text-primary">Electronics</a>
+        <span class="mx-2">&rsaquo;</span>
+        <span class="text-heading font-medium">Laptops</span>
+    </nav>
+
+    <!-- ===== MAIN: sidebar (240px) + products, gap 32px ===== -->
+    <div class="flex gap-8">
+
+        <!-- SIDEBAR (desktop only) -->
+        <aside class="hidden lg:block w-60 shrink-0">
+            <div class="bg-white border border-line rounded-xl p-5 space-y-6">
+
+                <div>
+                    <h3 class="text-heading text-[16px] font-semibold mb-3">Filters</h3>
+                    <p class="text-[13px] font-semibold text-heading mb-2">Category</p>
+                    <label class="flex items-center gap-2 text-[14px] py-1"><input type="checkbox" class="accent-primary"> Laptops</label>
+                    <label class="flex items-center gap-2 text-[14px] py-1"><input type="checkbox" class="accent-primary"> Desktops</label>
+                    <label class="flex items-center gap-2 text-[14px] py-1"><input type="checkbox" class="accent-primary"> Tablets</label>
+                    <label class="flex items-center gap-2 text-[14px] py-1"><input type="checkbox" class="accent-primary"> Accessories</label>
+                </div>
+
+                <div>
+                    <p class="text-[13px] font-semibold text-heading mb-2">Price Range</p>
+                    <label class="flex items-center gap-2 text-[14px] py-1"><input type="checkbox" class="accent-primary"> &#8377;0 – &#8377;25,000</label>
+                    <label class="flex items-center gap-2 text-[14px] py-1"><input type="checkbox" class="accent-primary"> &#8377;25,000 – &#8377;50,000</label>
+                    <label class="flex items-center gap-2 text-[14px] py-1"><input type="checkbox" class="accent-primary"> &#8377;50,000 – &#8377;75,000</label>
+                    <label class="flex items-center gap-2 text-[14px] py-1"><input type="checkbox" class="accent-primary"> &#8377;75,000+</label>
+                </div>
+
+                <div>
+                    <p class="text-[13px] font-semibold text-heading mb-2">Brand</p>
+                    <label class="flex items-center gap-2 text-[14px] py-1"><input type="checkbox" class="accent-primary"> Dell</label>
+                    <label class="flex items-center gap-2 text-[14px] py-1"><input type="checkbox" class="accent-primary"> HP</label>
+                    <label class="flex items-center gap-2 text-[14px] py-1"><input type="checkbox" class="accent-primary"> Lenovo</label>
+                    <label class="flex items-center gap-2 text-[14px] py-1"><input type="checkbox" class="accent-primary"> Apple</label>
+                </div>
+
+                <button class="w-full bg-primary hover:bg-primaryHover text-white text-[14px] font-medium py-2.5 rounded-lg transition-colors">Apply Filters</button>
+            </div>
+        </aside>
+
+        <!-- PRODUCTS COLUMN -->
+        <main class="flex-1">
+
+            <!-- tablet horizontal filter bar (shown 640–1023px) -->
+            <div class="hidden sm:flex lg:hidden gap-3 mb-4">
+                <button class="flex-1 flex items-center justify-center gap-2 bg-white border border-line rounded-lg py-2 text-[14px] font-medium text-heading">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="4" y1="6" x2="20" y2="6"/><line x1="7" y1="12" x2="17" y2="12"/><line x1="10" y1="18" x2="14" y2="18"/></svg>
+                    Filters
+                </button>
+                <button class="flex-1 flex items-center justify-center gap-2 bg-white border border-line rounded-lg py-2 text-[14px] font-medium text-heading">
+                    Sort
+                </button>
+            </div>
+
+            <!-- results header -->
+            <div class="flex items-center justify-between mb-4">
+                <p class="text-[14px]">Showing <span class="text-heading font-semibold">8 results</span></p>
+                <label class="flex items-center gap-2 text-[14px]">
+                    <span class="hidden sm:inline">Sort by:</span>
+                    <select class="bg-white border border-line rounded-lg px-3 py-1.5 text-[14px] text-heading outline-none">
+                        <option>Popularity</option>
+                        <option>Price: Low to High</option>
+                        <option>Price: High to Low</option>
+                        <option>Rating</option>
+                    </select>
+                </label>
+            </div>
+
+            <!-- ===== PRODUCT GRID: 1 / 2 / 3 / 4 cols, gap 24px ===== -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+
+                <!-- product card template (flex flex-col) -->
+                <!-- 1 -->
+                <div class="group bg-white border border-line rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow">
+                    <div class="relative overflow-hidden rounded-lg mb-3">
+                        <span class="absolute top-2 left-2 z-10 bg-sale text-white text-[11px] font-bold px-2 py-0.5 rounded">SALE</span>
+                        <div class="h-[220px] grid place-items-center bg-bg text-6xl transition-transform duration-300 group-hover:scale-110">💻</div>
+                    </div>
+                    <p class="text-[13px] text-body">Laptop</p>
+                    <h3 class="text-[16px] font-semibold text-heading mt-0.5">Dell Inspiron 15</h3>
+                    <div class="flex items-center gap-1 mt-1 text-[13px]">
+                        <span class="text-rating">★</span><span class="text-heading font-medium">4.5</span><span class="text-body">(1.2k)</span>
+                    </div>
+                    <div class="flex items-baseline gap-2 mt-2">
+                        <span class="text-[20px] font-bold text-heading">&#8377;45,990</span>
+                        <span class="text-[14px] line-through text-body">&#8377;89,990</span>
+                    </div>
+                    <button class="mt-4 bg-primary hover:bg-primaryHover text-white text-[14px] font-medium py-2 rounded-lg transition-colors">Add to Cart</button>
+                </div>
+
+                <!-- 2 -->
+                <div class="group bg-white border border-line rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow">
+                    <div class="relative overflow-hidden rounded-lg mb-3">
+                        <span class="absolute top-2 left-2 z-10 bg-green-600 text-white text-[11px] font-bold px-2 py-0.5 rounded">NEW</span>
+                        <div class="h-[220px] grid place-items-center bg-bg text-6xl transition-transform duration-300 group-hover:scale-110">💻</div>
+                    </div>
+                    <p class="text-[13px] text-body">Laptop</p>
+                    <h3 class="text-[16px] font-semibold text-heading mt-0.5">HP Pavilion</h3>
+                    <div class="flex items-center gap-1 mt-1 text-[13px]">
+                        <span class="text-rating">★</span><span class="text-heading font-medium">4.3</span><span class="text-body">(892)</span>
+                    </div>
+                    <div class="flex items-baseline gap-2 mt-2">
+                        <span class="text-[20px] font-bold text-heading">&#8377;52,990</span>
+                        <span class="text-[14px] line-through text-body">&#8377;69,990</span>
+                    </div>
+                    <button class="mt-4 bg-primary hover:bg-primaryHover text-white text-[14px] font-medium py-2 rounded-lg transition-colors">Add to Cart</button>
+                </div>
+
+                <!-- 3 -->
+                <div class="group bg-white border border-line rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow">
+                    <div class="relative overflow-hidden rounded-lg mb-3">
+                        <div class="h-[220px] grid place-items-center bg-bg text-6xl transition-transform duration-300 group-hover:scale-110">💻</div>
+                    </div>
+                    <p class="text-[13px] text-body">Laptop</p>
+                    <h3 class="text-[16px] font-semibold text-heading mt-0.5">Lenovo IdeaPad</h3>
+                    <div class="flex items-center gap-1 mt-1 text-[13px]">
+                        <span class="text-rating">★</span><span class="text-heading font-medium">4.2</span><span class="text-body">(654)</span>
+                    </div>
+                    <div class="flex items-baseline gap-2 mt-2">
+                        <span class="text-[20px] font-bold text-heading">&#8377;38,990</span>
+                    </div>
+                    <button class="mt-4 bg-primary hover:bg-primaryHover text-white text-[14px] font-medium py-2 rounded-lg transition-colors">Add to Cart</button>
+                </div>
+
+                <!-- 4 -->
+                <div class="group bg-white border border-line rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow">
+                    <div class="relative overflow-hidden rounded-lg mb-3">
+                        <div class="h-[220px] grid place-items-center bg-bg text-6xl transition-transform duration-300 group-hover:scale-110">💻</div>
+                    </div>
+                    <p class="text-[13px] text-body">Laptop</p>
+                    <h3 class="text-[16px] font-semibold text-heading mt-0.5">MacBook Air M2</h3>
+                    <div class="flex items-center gap-1 mt-1 text-[13px]">
+                        <span class="text-rating">★</span><span class="text-heading font-medium">4.8</span><span class="text-body">(2.3k)</span>
+                    </div>
+                    <div class="flex items-baseline gap-2 mt-2">
+                        <span class="text-[20px] font-bold text-heading">&#8377;92,990</span>
+                    </div>
+                    <button class="mt-4 bg-primary hover:bg-primaryHover text-white text-[14px] font-medium py-2 rounded-lg transition-colors">Add to Cart</button>
+                </div>
+
+                <!-- 5 -->
+                <div class="group bg-white border border-line rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow">
+                    <div class="relative overflow-hidden rounded-lg mb-3">
+                        <span class="absolute top-2 left-2 z-10 bg-green-600 text-white text-[11px] font-bold px-2 py-0.5 rounded">NEW</span>
+                        <div class="h-[220px] grid place-items-center bg-bg text-6xl transition-transform duration-300 group-hover:scale-110">💻</div>
+                    </div>
+                    <p class="text-[13px] text-body">Laptop</p>
+                    <h3 class="text-[16px] font-semibold text-heading mt-0.5">ASUS Vivobook</h3>
+                    <div class="flex items-center gap-1 mt-1 text-[13px]">
+                        <span class="text-rating">★</span><span class="text-heading font-medium">4.4</span><span class="text-body">(738)</span>
+                    </div>
+                    <div class="flex items-baseline gap-2 mt-2">
+                        <span class="text-[20px] font-bold text-heading">&#8377;41,990</span>
+                    </div>
+                    <button class="mt-4 bg-primary hover:bg-primaryHover text-white text-[14px] font-medium py-2 rounded-lg transition-colors">Add to Cart</button>
+                </div>
+
+                <!-- 6 -->
+                <div class="group bg-white border border-line rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow">
+                    <div class="relative overflow-hidden rounded-lg mb-3">
+                        <div class="h-[220px] grid place-items-center bg-bg text-6xl transition-transform duration-300 group-hover:scale-110">💻</div>
+                    </div>
+                    <p class="text-[13px] text-body">Laptop</p>
+                    <h3 class="text-[16px] font-semibold text-heading mt-0.5">Dell XPS 13</h3>
+                    <div class="flex items-center gap-1 mt-1 text-[13px]">
+                        <span class="text-rating">★</span><span class="text-heading font-medium">4.6</span><span class="text-body">(1.4k)</span>
+                    </div>
+                    <div class="flex items-baseline gap-2 mt-2">
+                        <span class="text-[20px] font-bold text-heading">&#8377;89,990</span>
+                    </div>
+                    <button class="mt-4 bg-primary hover:bg-primaryHover text-white text-[14px] font-medium py-2 rounded-lg transition-colors">Add to Cart</button>
+                </div>
+
+                <!-- 7 -->
+                <div class="group bg-white border border-line rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow">
+                    <div class="relative overflow-hidden rounded-lg mb-3">
+                        <span class="absolute top-2 left-2 z-10 bg-sale text-white text-[11px] font-bold px-2 py-0.5 rounded">SALE</span>
+                        <div class="h-[220px] grid place-items-center bg-bg text-6xl transition-transform duration-300 group-hover:scale-110">💻</div>
+                    </div>
+                    <p class="text-[13px] text-body">Laptop</p>
+                    <h3 class="text-[16px] font-semibold text-heading mt-0.5">Acer Swift 3</h3>
+                    <div class="flex items-center gap-1 mt-1 text-[13px]">
+                        <span class="text-rating">★</span><span class="text-heading font-medium">4.1</span><span class="text-body">(410)</span>
+                    </div>
+                    <div class="flex items-baseline gap-2 mt-2">
+                        <span class="text-[20px] font-bold text-heading">&#8377;36,990</span>
+                        <span class="text-[14px] line-through text-body">&#8377;49,990</span>
+                    </div>
+                    <button class="mt-4 bg-primary hover:bg-primaryHover text-white text-[14px] font-medium py-2 rounded-lg transition-colors">Add to Cart</button>
+                </div>
+
+                <!-- 8 -->
+                <div class="group bg-white border border-line rounded-xl p-4 flex flex-col hover:shadow-lg transition-shadow">
+                    <div class="relative overflow-hidden rounded-lg mb-3">
+                        <div class="h-[220px] grid place-items-center bg-bg text-6xl transition-transform duration-300 group-hover:scale-110">💻</div>
+                    </div>
+                    <p class="text-[13px] text-body">Laptop</p>
+                    <h3 class="text-[16px] font-semibold text-heading mt-0.5">MSI Modern 14</h3>
+                    <div class="flex items-center gap-1 mt-1 text-[13px]">
+                        <span class="text-rating">★</span><span class="text-heading font-medium">4.3</span><span class="text-body">(330)</span>
+                    </div>
+                    <div class="flex items-baseline gap-2 mt-2">
+                        <span class="text-[20px] font-bold text-heading">&#8377;54,990</span>
+                    </div>
+                    <button class="mt-4 bg-primary hover:bg-primaryHover text-white text-[14px] font-medium py-2 rounded-lg transition-colors">Add to Cart</button>
+                </div>
+
+            </div>
+        </main>
+    </div>
+</div>
+
+<!--
+    Real product photos: replace the emoji <div> with an <img>, keeping the zoom:
+        <img src="images/dell-inspiron.jpg" alt="Dell Inspiron 15"
+             class="h-[220px] w-full object-cover transition-transform duration-300 group-hover:scale-110">
+    (keep the parent .overflow-hidden so the zoom stays clipped)
+-->
+</body>
+</html>
